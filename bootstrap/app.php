@@ -9,9 +9,9 @@ require_once __DIR__.'/../vendor/autoload.php';
 date_default_timezone_set(env('APP_TIMEZONE', 'UTC'));
 
 /*
-|--------------------------------------------------------------------------
+|---------------------------------------------------------------------------
 | Create The Application
-|--------------------------------------------------------------------------
+|---------------------------------------------------------------------------
 |
 | Here we will load the environment and create the application instance
 | that serves as the central piece of this framework. We'll use this
@@ -23,14 +23,14 @@ $app = new Laravel\Lumen\Application(
     dirname(__DIR__)
 );
 
-// $app->withFacades();
+$app->withFacades();
 
-// $app->withEloquent();
+$app->withEloquent();
 
 /*
-|--------------------------------------------------------------------------
+|---------------------------------------------------------------------------
 | Register Container Bindings
-|--------------------------------------------------------------------------
+|---------------------------------------------------------------------------
 |
 | Now we will register a few bindings in the service container. We will
 | register the exception handler and the console kernel. You may add
@@ -49,9 +49,9 @@ $app->singleton(
 );
 
 /*
-|--------------------------------------------------------------------------
+|---------------------------------------------------------------------------
 | Register Config Files
-|--------------------------------------------------------------------------
+|---------------------------------------------------------------------------
 |
 | Now we will register the "app" configuration file. If the file exists in
 | your configuration directory it will be loaded; otherwise, we'll load
@@ -62,9 +62,9 @@ $app->singleton(
 $app->configure('app');
 
 /*
-|--------------------------------------------------------------------------
+|---------------------------------------------------------------------------
 | Register Middleware
-|--------------------------------------------------------------------------
+|---------------------------------------------------------------------------
 |
 | Next, we will register the middleware with the application. These can
 | be global middleware that run before and after each request into a
@@ -81,9 +81,9 @@ $app->configure('app');
 // ]);
 
 /*
-|--------------------------------------------------------------------------
+|---------------------------------------------------------------------------
 | Register Service Providers
-|--------------------------------------------------------------------------
+|---------------------------------------------------------------------------
 |
 | Here we will register all of the application's service providers which
 | are used to bind services into the container. Service providers are
@@ -91,14 +91,14 @@ $app->configure('app');
 |
 */
 
-// $app->register(App\Providers\AppServiceProvider::class);
-// $app->register(App\Providers\AuthServiceProvider::class);
-// $app->register(App\Providers\EventServiceProvider::class);
+$app->register(App\Providers\AppServiceProvider::class);
+$app->register(App\Providers\AuthServiceProvider::class);
+$app->register(App\Providers\EventServiceProvider::class);
 
 /*
-|--------------------------------------------------------------------------
+|---------------------------------------------------------------------------
 | Load The Application Routes
-|--------------------------------------------------------------------------
+|---------------------------------------------------------------------------
 |
 | Next we will include the routes file so that they can all be added to
 | the application. This will provide all of the URLs the application
